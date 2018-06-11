@@ -42,14 +42,14 @@ int main() {
     cout << "intQueue depth of? " << intQueue.depth() << endl;
     cout << "intQueue3 depth: " << intQueue3.depth() << endl;
 
-    CircularQueue<int> intQueue4;
+    CircularQueue<int> intQueue4(0);
     intQueue4 = intQueue3;
     cout << "intQueue4 created then = intQueue3" << endl;
     cout << "enqueue 77 to intQueue3: " << intQueue3.enqueue(77) << endl;
     cout << "intQueue3 depth of? " << intQueue3.depth() << endl;
     cout << "intQueue4 depth: " << intQueue4.depth() << endl;
 
-    CircularQueue<int> intQueue5;
+    CircularQueue<int> intQueue5(0);
     intQueue5 = move(intQueue3);
     cout << "intQueue5 created then = move(intQueue3)" << endl;
     cout << "intQueue3 depth of? " << intQueue3.depth() << endl;
