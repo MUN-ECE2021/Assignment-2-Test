@@ -9,6 +9,7 @@ int main() {
     cout << "CircularQueue intQueue created" << endl;
     cout << "is the queue empty? " << intQueue.empty() << endl;
     cout << "is the queue full? " << intQueue.full() << endl;
+    cout << "attempting to dequeue: " << intQueue.dequeue() << endl;
     cout << "depth of? " << intQueue.depth() << endl;
     cout << "Adding int 3 to intQueue : " << intQueue.enqueue(3) << endl;
     cout << "Adding int 23 to intQueue : " << intQueue.enqueue(23) << endl;
@@ -108,5 +109,55 @@ int main() {
     cout << "doubleQueue5 depth: " << doubleQueue5.depth() << endl;
 
     cout << "----- double test code done ------" << endl;
+
+    CircularQueue<string> stringQueue(4);
+    cout << "CircularQueue stringQueue created" << endl;
+    cout << "is the queue empty? " << stringQueue.empty() << endl;
+    cout << "is the queue full? " << stringQueue.full() << endl;
+    cout << "depth of? " << stringQueue.depth() << endl;
+    cout << "Adding string 3 to stringQueue : " << stringQueue.enqueue("string1") << endl;
+    cout << "Adding string 23 to stringQueue : " << stringQueue.enqueue("string2") << endl;
+    cout << "Adding string 99 to stringQueue : " << stringQueue.enqueue("string3") << endl;
+    cout << "Adding string 1 to stringQueue : " << stringQueue.enqueue("string4") << endl;
+    cout << "depth of? " << stringQueue.depth() << endl;
+    cout << "Adding string 92 to stringQueue : " << stringQueue.enqueue("string5") << endl;
+    cout << "is the queue empty? " << stringQueue.empty() << endl;
+    cout << "is the queue full? " << stringQueue.full() << endl;
+    cout << "dequeueing: " << stringQueue.dequeue() << endl;
+    cout << "depth of? " << stringQueue.depth() << endl;
+    cout << "Adding string 1 to stringQueue : " << stringQueue.enqueue("string6") << endl;
+    cout << "Adding string 92 to stringQueue : " << stringQueue.enqueue("string7") << endl;
+    cout << "is the queue empty? " << stringQueue.empty() << endl;
+    cout << "is the queue full? " << stringQueue.full() << endl;
+    cout << "dequeueing: " << stringQueue.dequeue() << endl;
+    cout << "Peek at next dequeue value: " << stringQueue.peek() << endl;
+    cout << "is the queue empty? " << stringQueue.empty() << endl;
+    cout << "is the queue full? " << stringQueue.full() << endl;
+    cout << "depth of? " << stringQueue.depth() << endl;
+    cout << "dequeueing: " << stringQueue.dequeue() << endl;
+
+    CircularQueue<string> stringQueue2(stringQueue);
+    cout << "stringQueue2 created by copying stringQueue" << endl;
+    cout << "the original stringQueue is dequeued: " << stringQueue.dequeue() << endl;
+    cout << "stringQueue depth of? " << stringQueue.depth() << endl;
+    cout << "stringQueue2 depth: " << stringQueue2.depth() << endl;
+
+    CircularQueue<string> stringQueue3(move(stringQueue));
+    cout << "stringQueue3 created by moving stringQueue" << endl;
+    cout << "stringQueue depth of? " << stringQueue.depth() << endl;
+    cout << "stringQueue3 depth: " << stringQueue3.depth() << endl;
+
+    CircularQueue<string> stringQueue4(0);
+    stringQueue4 = stringQueue3;
+    cout << "stringQueue4 created then = stringQueue3" << endl;
+    cout << "enqueue 77 to stringQueue3: " << stringQueue3.enqueue("string8") << endl;
+    cout << "stringQueue3 depth of? " << stringQueue3.depth() << endl;
+    cout << "stringQueue4 depth: " << stringQueue4.depth() << endl;
+
+    CircularQueue<string> stringQueue5(0);
+    stringQueue5 = move(stringQueue3);
+    cout << "stringQueue5 created then = move(stringQueue3)" << endl;
+    cout << "stringQueue3 depth of? " << stringQueue3.depth() << endl;
+    cout << "stringQueue5 depth: " << stringQueue5.depth() << endl;
     return 0;
 }
